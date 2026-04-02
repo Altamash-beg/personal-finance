@@ -1,4 +1,4 @@
-require('dotenv').config(); // If you're using a .env file
+require('dotenv').config(); 
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -8,7 +8,12 @@ const transactionRoutes = require('./routes/transactions');
 const categoryRoutes = require('./routes/categories');
 
 const app = express();
-app.use(cors());
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://your-netlify-url.netlify.app",
+  credentials: true
+}));cle
 app.use(express.json());
 
 // Routes
