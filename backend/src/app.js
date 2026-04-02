@@ -8,7 +8,6 @@ const transactionRoutes = require('./routes/transactions');
 const categoryRoutes = require('./routes/categories');
 
 const app = express();
-const cors = require("cors");
 
 app.use(cors({
   origin: "https://your-netlify-url.netlify.app",
