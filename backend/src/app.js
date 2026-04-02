@@ -12,7 +12,7 @@ const app = express();
 app.use(cors({
   origin: "https://your-netlify-url.netlify.app",
   credentials: true
-}));cle
+}));
 app.use(express.json());
 
 // Routes
