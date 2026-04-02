@@ -10,7 +10,7 @@ const categoryRoutes = require('./routes/categories');
 const app = express();
 
 app.use(cors({
-  origin: "https://your-netlify-url.netlify.app",
+  origin: "https://serene-cocada-6d284a.netlify.app",
   credentials: true
 }));
 app.use(express.json());
