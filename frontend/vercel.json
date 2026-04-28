@@ -1,0 +1,6 @@
+{
+  "name": "altamash-personal-finance",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

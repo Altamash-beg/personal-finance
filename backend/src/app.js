@@ -38,8 +38,7 @@ app.use('/api/transactions', transactionRoutes);
 app.use('/api/categories', categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
-const DB_URI = process.env.DB_URI || 'mongodb://127.0.0.1:27017/personal_finance';
-
+const DB_URI = process.env.MONGO_URI;  
 mongoose.connect(DB_URI)
   .then(() => {
     console.log('Connected to MongoDB');
