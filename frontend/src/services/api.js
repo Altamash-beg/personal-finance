@@ -7,10 +7,10 @@ const api = axios.create({
   baseURL
 });
 
-// Add token
+
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token'); // ✅ clean line
+    const token = localStorage.getItem('token'); 
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -21,7 +21,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Handle 401
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {
