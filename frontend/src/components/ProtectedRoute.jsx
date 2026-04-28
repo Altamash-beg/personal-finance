@@ -8,11 +8,9 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="container text-center py-5">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <p className="mt-2">Loading...</p>
+      <div className="flex flex-col items-center justify-center py-20">
+        <div className="spinner-ring"></div>
+        <p className="mt-4 text-slate-400 text-sm">Loading...</p>
       </div>
     );
   }

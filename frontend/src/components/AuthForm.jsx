@@ -48,66 +48,106 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="container" style={{ maxWidth: '400px' }}>
-      <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
-      {error && (
-        <div className="alert alert-danger" role="alert">
-          {error}
+    <div className="flex items-center justify-center min-h-[70vh]">
+      <div className="w-full max-w-md animate-fade-in">
+        {/* Header */}
+        <div className="text-center mb-8">
+          
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+            {isLogin ? 'Welcome Back' : 'Create Account'}
+          </h2>
+          <p className="text-slate-400 mt-2 text-sm">
+            {isLogin ? 'Sign in to manage your finances' : 'Start your financial journey today'}
+          </p>
         </div>
-      )}
-      {success && (
-        <div className="alert alert-success" role="alert">
-          {success}
-        </div>
-      )}
-      <form onSubmit={handleSubmit} className="card p-4">
-        {!isLogin && (
-          <div className="mb-3">
-            <label className="form-label">Name:</label>
+
+        {/* Alerts */}
+        {error && (
+          <div className="mb-4 px-4 py-3 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-300 text-sm" role="alert">
+            ⚠️ {error}
+          </div>
+        )}
+        {success && (
+          <div className="mb-4 px-4 py-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-300 text-sm" role="alert">
+            ✅ {success}
+          </div>
+        )}
+
+        {/* Form Card */}
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-violet-500/5"
+        >
+          {!isLogin && (
+            <div className="mb-5">
+              <label className="block text-sm font-medium text-slate-300 mb-2">Name</label>
+              <input
+                type="text"
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all duration-200"
+                placeholder="Your full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+          )}
+
+          <div className="mb-5">
+            <label className="block text-sm font-medium text-slate-300 mb-2">Email</label>
             <input
-              type="text"
-              className="form-control"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              type="email"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all duration-200"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-        )}
-        <div className="mb-3">
-          <label className="form-label">Email:</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Password:</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength={6}
-          />
-        </div>
-        <button className="btn btn-primary" disabled={loading}>
-          {loading ? 'Please wait...' : (isLogin ? 'Login' : 'Sign Up')}
-        </button>
-      </form>
-      <p className="mt-2 text-center">
-        {isLogin ? "Don't have an account?" : 'Already have an account?'}
-        <button
-          type="button"
-          className="btn btn-link p-1 ms-1"
-          onClick={() => { setIsLogin(!isLogin); setError(''); setSuccess(''); }}
-        >
-          {isLogin ? 'Sign Up' : 'Login'}
-        </button>
-      </p>
+
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-slate-300 mb-2">Password</label>
+            <input
+              type="password"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all duration-200"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength={6}
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 disabled:from-slate-600 disabled:to-slate-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-violet-500/25 disabled:shadow-none disabled:cursor-not-allowed"
+          >
+            {loading ? (
+              <span className="flex items-center justify-center gap-2">
+                <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                Please wait...
+              </span>
+            ) : (
+              isLogin ? 'Sign In' : 'Create Account'
+            )}
+          </button>
+        </form>
+
+        {/* Toggle */}
+        <p className="mt-6 text-center text-sm text-slate-400">
+          {isLogin ? "Don't have an account?" : 'Already have an account?'}
+          <button
+            type="button"
+            className="ml-2 text-violet-400 hover:text-violet-300 font-medium transition-colors duration-200"
+            onClick={() => { setIsLogin(!isLogin); setError(''); setSuccess(''); }}
+          >
+            {isLogin ? 'Sign Up' : 'Sign In'}
+          </button>
+        </p>
+      </div>
     </div>
   );
 };
