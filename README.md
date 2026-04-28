@@ -29,7 +29,18 @@ A comprehensive full-stack application that helps users track income, expenses, 
 - **User Profile**  
   View basic account information and manage personal details.
 
-- **Responsive UI**  
+-# personal finance manager 
+
+## 🌐 Live Demo
+Frontend: https://serene-cocada-6d284a.netlify.app  
+Backend: https://personal-finance-wptt.onrender.com
+
+## 🚀 Features
+- User Signup/Login
+- Track income & expenses
+- Categories
+- **Responsive UI**
+-  
   Built with React and Bootstrap for a seamless experience on both desktop and mobile devices.
 
 - **Protected Endpoints**  
