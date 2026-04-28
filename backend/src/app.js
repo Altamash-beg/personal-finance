@@ -38,7 +38,7 @@ app.use('/api/transactions', transactionRoutes);
 app.use('/api/categories', categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
-const DB_URI = process.env.MONGO_URI;  
+const DB_URI = process.env.DB_URI;  
 mongoose.connect(DB_URI)
   .then(() => {
     console.log('Connected to MongoDB');
