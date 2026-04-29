@@ -14,14 +14,17 @@ const categoryRoutes = require('./routes/categories');
 const app = express();
 
 const allowedOrigins = [
-  'https://serene-cocada-6d284a.netlify.app',
+  'https://financehubnew.netlify.app', 
   'http://localhost:3000',
   'http://127.0.0.1:3000'
 ];
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin) || /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps, Postman)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('CORS policy does not allow this origin.'));
