@@ -15,6 +15,7 @@ const app = express();
 
 const allowedOrigins = [
   'https://financehubnew.netlify.app', 
+  'https://chipper-pony-64ac79.netlify.app',
   'http://localhost:3000',
   'http://127.0.0.1:3000'
 ];
