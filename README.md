@@ -32,8 +32,8 @@ A comprehensive full-stack application that helps users track income, expenses, 
 -# personal finance manager 
 
 ## 🌐 Live Demo
-Frontend: https://serene-cocada-6d284a.netlify.app  
-Backend: https://personal-finance-wptt.onrender.com
+Frontend: https://chipper-pony-64ac79.netlify.app 
+Backend: https://personal-finance-2-2qkw.onrender.com
 
 ## 🚀 Features
 - User Signup/Login
